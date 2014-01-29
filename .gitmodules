@@ -1,0 +1,3 @@
+[submodule "lib/hm-rewrite"]
+	path = lib/hm-rewrite
+	url = git@github.com:humanmade/hm-rewrite.git
