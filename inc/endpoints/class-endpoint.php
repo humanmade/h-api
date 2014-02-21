@@ -109,7 +109,7 @@ abstract class Endpoint {
 			case 'POST':
 				// Correctly parse raw JSON payload.
 				if ( $_SERVER["CONTENT_TYPE"] == 'application/json' ) {
-					$args = json_decode( file_get_contents("php://input"), true );
+					$args = $this->validate_arguments( stripslashes_deep( json_decode( file_get_contents("php://input"), true ) ) );
 				}
 				else {
 					$args = $this->validate_arguments( stripslashes_deep( $_POST ) );
