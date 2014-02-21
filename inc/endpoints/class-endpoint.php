@@ -290,7 +290,8 @@ abstract class Endpoint {
 			}
 		}
 
-		header('WWW-Authenticate: Basic realm="WP Remote API"');
+		$auth_realm = ( defined( 'HAPI_AUTH_REALM') ) ? HAPI_AUTH_REALM : 'H-API';
+		header( sprintf( 'WWW-Authenticate: Basic realm="%s"', $auth_realm ) );
 		$this->send_error( '', 401 );
 	}
 
